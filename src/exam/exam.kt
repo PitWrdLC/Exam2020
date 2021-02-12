@@ -12,28 +12,26 @@ fun example(inputName: String): Int {
 // Пожалуйста добавьте необходимые параметры,
 // тип результата, и измените имя функции (Shift+F6)
 
-fun myExamTask(inputName: String, racer: String): String {
+fun myExamTask(inputName: String, racer: String): Int {
     var finalSumm = 0
     var testing = racer
     var time = 0
     var disclamer1 = " "
     var disclamer2 = ", "
+    var disclamer3 = "  "+racer
 
     for (lineA in File(inputName).readLines()) {
-    println("LINE $lineA")
-        if (lineA.contains(Regex("""^(Гран-при)+"""))){
-        time += 1}
-        if (lineA.contains(Regex("""${testing}+"""))&& time == 1) {
-            val perem = lineA.split(disclamer2,disclamer1)
-            var pi =perem.lastIndex
+        if (lineA.contains(Regex("""^$disclamer3+"""))) {
+            time += 1
+        }
+        if (lineA.contains(Regex("""${testing}+""")) && time == 1) {
+            val perem = lineA.split(disclamer2, disclamer1)
+            var pi = perem.lastIndex
             finalSumm += perem[pi].toInt()
             time -= 1
-                }
-
+        }
     }
-
-    val final = racer + " " + finalSumm.toString()
-    return final
+    return finalSumm
 }
 /*
 Гран-при Австралии
