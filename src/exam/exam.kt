@@ -14,29 +14,23 @@ fun example(inputName: String): Int {
 
 fun myExamTask(inputName: String, racer: String): String {
     var finalSumm = 0
+    var testing = racer
     var time = 0
     var disclamer1 = " "
     var disclamer2 = ", "
-    // 1 победитесль в град-при
-    // читать построчно
-    // если ганд-при то счетчик +1
-    // поисск имени ( пройти по строчкам)
-    // если нашел имя то присваивается переменная  в итоге которой будте массив слов [name,mark,number]
-    // взять число из массива и приплючовать к имеющемуся
-    //
+
     for (lineA in File(inputName).readLines()) {
-
-        if (lineA.contains(Regex("""^(Гран-при)"""))){ // счетчик для победителей(победитель всегда один)
+    println("LINE $lineA")
+        if (lineA.contains(Regex("""^(Гран-при)+"""))){
         time += 1}
-
-        if (lineA.contains(Regex("""$(racer)+"""))&&time == 0) {   // если обнаружен импостер
+        if (lineA.contains(Regex("""${testing}+"""))&& time == 1) {
             val perem = lineA.split(disclamer2,disclamer1)
-            finalSumm += perem[2].toInt()
-            time -+ 1
+            var pi =perem.lastIndex
+            finalSumm += perem[pi].toInt()
+            time -= 1
                 }
 
     }
-
 
     val final = racer + " " + finalSumm.toString()
     return final
@@ -56,3 +50,10 @@ fun myExamTask(inputName: String, racer: String): String {
 Леклер, Феррари, 2
 Боттас, Мерседес, 1
 */
+// 1 победитесль в град-при
+// читать построчно
+// если ганд-при то счетчик +1
+// поисск имени ( пройти по строчкам)
+// если нашел имя то присваивается переменная  в итоге которой будте массив слов [name,mark,number]
+// взять число из массива и приплючовать к имеющемуся
+//
