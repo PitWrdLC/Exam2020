@@ -16,9 +16,19 @@ fun myExamTask(inputName: String, racer: String): Int {
     var finalSumm = 0
     var testing = racer
     var time = 0
-    var disclamer1 = " "
-    var disclamer2 = ", "
-    var disclamer3 = "  "+racer
+    val disclamer1 = " "
+    val disclamer2 = ", "
+    val disclamer3 = "  "+racer
+    val disclamer4 = "Гран-при"
+
+ /*   var listTest = mutableMapOf<String,Int>()
+    for (lineB in File(inputName).readLines()) {
+        if (!lineB.contains(Regex("""^$disclamer4+""")))
+
+    } */
+
+
+
 
     for (lineA in File(inputName).readLines()) {
         if (lineA.contains(Regex("""^$disclamer3+"""))) {
@@ -33,6 +43,7 @@ fun myExamTask(inputName: String, racer: String): Int {
     }
     return finalSumm
 }
+
 /*
 Гран-при Австралии
 Хэмилтон, Мерседес, 8
